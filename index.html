@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f3eb" />
+  <title>Interest, made simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Interest calculator home"><span class="brand-mark">i</span><span>interest<span class="brand-dot">.</span></span></a>
+      <div class="top-note"><span class="live-dot"></span> live calculator</div>
+    </header>
+
+    <section class="hero" id="top">
+      <div>
+        <p class="eyebrow">A clearer view of your money</p>
+        <h1>Interest,<br><em>made simple.</em></h1>
+      </div>
+      <p class="hero-copy">See what your money can become.<br>Adjust the dials, explore the difference.</p>
+    </section>
+
+    <nav class="mode-switch" aria-label="Calculator mode">
+      <button class="mode active" data-mode="single">One scenario</button>
+      <button class="mode" data-mode="compare">Compare two</button>
+    </nav>
+
+    <section class="workspace">
+      <div class="input-panel">
+        <div class="section-heading"><div><p class="eyebrow">Your scenario</p><h2 id="form-title">Set your starting point</h2></div><span class="step">01</span></div>
+        <div class="preset-row" aria-label="Quick presets">
+          <button class="preset" data-principal="5000" data-rate="4.5" data-time="3">Rainy day</button>
+          <button class="preset" data-principal="25000" data-rate="6.25" data-time="5">Nest egg</button>
+          <button class="preset" data-principal="100000" data-rate="7" data-time="10">Long view</button>
+        </div>
+        <div class="fields">
+          <label class="field"><span>Principal amount</span><div class="input-wrap"><span>$</span><input id="principal" type="number" min="0" step="100" value="25000" inputmode="decimal"></div></label>
+          <label class="field"><span>Annual interest rate</span><div class="input-wrap"><input id="rate" type="number" min="0" step="0.1" value="6.25" inputmode="decimal"><span>%</span></div></label>
+          <label class="field field-wide"><span>Time period</span><div class="input-wrap"><input id="time" type="number" min="0" step="1" value="5" inputmode="decimal"><select id="unit" aria-label="Time unit"><option value="years">years</option><option value="months">months</option></select></div></label>
+        </div>
+        <div class="formula"><span class="formula-label">Simple interest formula</span><strong>I = P × r × t</strong><span class="formula-values" id="formula-values">$25,000 × 6.25% × 5</span></div>
+        <div class="tip"><span class="tip-icon">✦</span><span><strong>Small insight</strong><br><span id="insight">At this rate, your money earns about one month's rent each year.</span></span></div>
+      </div>
+
+      <div class="result-panel">
+        <div class="result-top"><div><p class="eyebrow">Your projected total</p><div class="total" id="total">$32,812.50</div></div><div class="growth-badge" id="growth">+31.3%</div></div>
+        <div class="money-map"><div class="donut" id="donut"><div class="donut-center"><span>interest earned</span><strong id="interest">$7,812.50</strong></div></div><div class="legend"><div><i class="swatch principal-swatch"></i><span>Principal</span><strong id="legend-principal">$25,000</strong></div><div><i class="swatch interest-swatch"></i><span>Interest</span><strong id="legend-interest">$7,812.50</strong></div></div></div>
+        <div class="yearly-growth"><div class="chart-heading"><span>Balance over time</span><span class="muted" id="period-label">5 years</span></div><div class="bars" id="bars"></div></div>
+        <button class="share-button" id="copy-button"><span>↗</span> Copy summary</button><span class="copy-status" id="copy-status" role="status"></span>
+      </div>
+    </section>
+
+    <section class="compare-section" id="compare-section" hidden>
+      <div class="section-heading"><div><p class="eyebrow">Side by side</p><h2>Make the tradeoff visible</h2></div><span class="step">02</span></div>
+      <div class="compare-grid">
+        <div class="compare-card"><div class="compare-label"><span class="compare-marker marker-a">A</span><strong>Steady &amp; short</strong></div><label class="field"><span>Rate</span><div class="input-wrap"><input id="rate-a" type="number" min="0" step="0.1" value="4.5"><span>%</span></div></label><label class="field"><span>Time</span><div class="input-wrap"><input id="time-a" type="number" min="0" step="1" value="3"><span>years</span></div></label><div class="compare-total" id="total-a">$28,375.00</div><small id="interest-a">$3,375.00 interest</small></div>
+        <div class="compare-card featured"><div class="compare-label"><span class="compare-marker marker-b">B</span><strong>Patient &amp; powerful</strong></div><label class="field"><span>Rate</span><div class="input-wrap"><input id="rate-b" type="number" min="0" step="0.1" value="6.25"><span>%</span></div></label><label class="field"><span>Time</span><div class="input-wrap"><input id="time-b" type="number" min="0" step="1" value="5"><span>years</span></div></label><div class="compare-total" id="total-b">$32,812.50</div><small id="interest-b">$7,812.50 interest</small></div>
+      </div>
+      <p class="compare-insight" id="compare-insight">Scenario B earns <strong>$4,437.50 more</strong> over the same starting principal.</p>
+    </section>
+
+    <footer><span>Built for better money decisions.</span><span class="footer-formula">No compounding. No surprises.</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
